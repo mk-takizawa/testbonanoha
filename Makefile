@@ -1,5 +1,4 @@
-EXE = testbonanoha
-#COMP=icc
+EXE = testBonanoha
 ARCH=x86-64-modern
 #popcnt-profile-build
 
