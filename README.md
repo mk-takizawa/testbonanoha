@@ -11,7 +11,9 @@ Windowsバイナリは無く、Linux(g++)でしかコンパイル／動作確認
 
 拡張内容
 
-・KKP/KPP をBonanza v6.0のものを使用
+・KKP/KPP(Bonanza v6.0のもの)を使用
+
+・KPPの3次元化
 
 ・KKPインデックスをKPPと共通化
 
