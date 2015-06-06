@@ -37,15 +37,13 @@ Windowsバイナリは無く、Linux(g++)でしかコンパイル／動作確認
 
 # ビルド方法
 
-$ make
-
-testBonanohaが実行バイナリとなります。
-
-ただ、このままでは動きません。
-
 $ unzip fv3.zip
 
 → fv3.bin
+
+$ make
+
+testBonanohaが実行バイナリとなります。
 
 # ライセンス
 
