@@ -34,7 +34,7 @@
 #include "position.h"
 
 #if defined(NANOHA)
-const int MAX_THREADS = 6;
+const int MAX_THREADS = 16;
 #else
 const int MAX_THREADS = 32;
 #endif
