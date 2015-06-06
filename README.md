@@ -57,7 +57,11 @@ testBonanohaが実行バイナリとなります。
 
 Windows版バイナリは testBonanoha.exe です。
 
-実行にはVS2013用のVisual C++ 再頒布可能パッケージ(x64用)が必要です。
+同様にfv3.zipを解凍してバイナリと同じディレクトリにfv3.binを配置してください。
+
+testBonanoha.exeとfv3.bin, book_40.jskがあればOKです。
+
+また、実行にはVS2013用のVisual C++ 再頒布可能パッケージ(x64用)が必要です。
 
 http://www.microsoft.com/ja-JP/download/details.aspx?id=40784
 
