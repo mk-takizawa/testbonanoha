@@ -7,7 +7,7 @@ NANOHAMINI=1
 
 !IFDEF NANOHAMINI
 EVAL_TYPE=EVAL_OLD
-EXE = nanohamini.exe
+EXE = testBonanoha.exe
 PGD = nanohamini.pgd
 PGOLOG = nanohamini_prof.txt
 !ELSEIFDEF NANOHAMICRO
