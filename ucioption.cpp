@@ -83,7 +83,7 @@ OptionsMap::OptionsMap() {
 	o["Ponder"] = UCIOption(true);
 #endif
 	o["Threads"] = UCIOption(1, 1, MAX_THREADS);
-	o["Hash"] = UCIOption(256, 4, 4096);
+	o["Hash"] = UCIOption(256, 4, 32768);
 
 	o["Use Search Log"] = UCIOption(false);
 	o["Search Log Filename"] = UCIOption("SearchLog.txt");
