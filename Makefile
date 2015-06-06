@@ -1,5 +1,5 @@
 EXE = testBonanoha
-ARCH=x86-64-modern
+#ARCH=x86-64-modern
 #popcnt-profile-build
 
 ### Built-in benchmark for pgo-builds

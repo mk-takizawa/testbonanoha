@@ -268,20 +268,20 @@ void solve_problem(int argc, char* argv[]) {
 			char buf[16];
 			switch (width) {
 			case 5:
-				sprintf(buf, "%05u", i+1);
+				sprintf(buf, "%05zu", i+1);
 				break;
 			case 4:
-				sprintf(buf, "%04u", i+1);
+				sprintf(buf, "%04zu", i+1);
 				break;
 			case 3:
-				sprintf(buf, "%03u", i+1);
+				sprintf(buf, "%03zu", i+1);
 				break;
 			case 2:
-				sprintf(buf, "%02u", i+1);
+				sprintf(buf, "%02zu", i+1);
 				break;
 			case 1:
 			default:
-				sprintf(buf, "%u", i+1);
+				sprintf(buf, "%zu", i+1);
 				break;
 			}
 			double nps = (rap_time > 0) ? 1000.0*(pos.nodes_searched() + pos.tnodes_searched()) / rap_time : 0;
