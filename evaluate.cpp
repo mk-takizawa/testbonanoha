@@ -211,27 +211,7 @@ namespace NanohaTbl {
 		-1,  8, 17, 26, 35, 44, 53, 62, 71, 80, -1, -1, -1, -1, -1, -1,
 	};
 }
-/*
-const int pc2suf[31] = {
- e_dragon, e_horse, e_gold, e_gold, e_gold, e_gold, e_gold, 0,
- e_rook, e_bishop, e_gold, e_silver, e_knight, e_lance, e_pawn,
- 0,
- f_pawn, f_lance, f_knight, f_silver, f_gold, f_bishop, f_rook, 0,
- f_gold, f_gold, f_gold, f_gold, f_gold, f_horse, f_dragon
-};
 
-static int CONV doacapt( const tree_t * restrict ptree, int pc, int turn,
-			 const int list0[52],
-			 const int list1[52], int *curhand, int nlist );
-			 //int hand_index, const int list0[52],
-			 //const int list1[52], int nlist );
-static int CONV doapc( const tree_t * restrict ptree, int pc, int sq,
-		       const int list0[52], const int list1[52], int nlist );
-static int CONV calc_difference( tree_t * restrict ptree, int ply,
-				 int turn, int list0[52], int list1[52],
-				 int * restrict pscore );
-
-*/
 void Position::init_evaluate()
 {
 	int iret=0;
@@ -446,13 +426,13 @@ int Position::compute_material() const
 #if !defined(EVAL_MICRO)
 int Position::make_list(int * pscore, int list0[NLIST], int list1[NLIST] ) const
 {
-    int sq, /*i,*/ score, sq_bk0, sq_bk1;
+  int sq, /*i,*/ score /*, sq_bk0, sq_bk1*/;
 
 	score  = 0;
-	sq_bk0 = SQ_BKING;
-	sq_bk1 = Inv(SQ_WKING);
-	int sq_wk0 = SQ_WKING;
-	int sq_wk1 = Inv(SQ_BKING);
+	//sq_bk0 = SQ_BKING;
+	//sq_bk1 = Inv(SQ_WKING);
+	//int sq_wk0 = SQ_WKING;
+	//int sq_wk1 = Inv(SQ_BKING);
 	//int nlist = 0;
 		
 	int nlist;
@@ -548,7 +528,9 @@ int Position::make_list(int * pscore, int list0[NLIST], int list1[NLIST] ) const
 	  list1[n++] = f_hand_rook + I2HandRook(HAND_W);
 	} 
 	nlist = n;
-
+	
+	// fix bug 20150608
+  /*
   score += kkp[sq_bk0][sq_wk0][ kkp_hand_pawn   + I2HandPawn(HAND_B) ];
   score += kkp[sq_bk0][sq_wk0][ kkp_hand_lance  + I2HandLance(HAND_B) ];
   score += kkp[sq_bk0][sq_wk0][ kkp_hand_knight + I2HandKnight(HAND_B) ];
@@ -564,6 +546,8 @@ int Position::make_list(int * pscore, int list0[NLIST], int list1[NLIST] ) const
   score -= kkp[sq_bk1][sq_wk1][ kkp_hand_gold   + I2HandGold(HAND_W) ];
   score -= kkp[sq_bk1][sq_wk1][ kkp_hand_bishop + I2HandBishop(HAND_W) ];
   score -= kkp[sq_bk1][sq_wk1][ kkp_hand_rook   + I2HandRook(HAND_W) ];
+  */
+    
   /*
 	int sfu_list0[9];
 	int sfu_list1[9];
@@ -635,8 +619,8 @@ int Position::make_list(int * pscore, int list0[NLIST], int list1[NLIST] ) const
 				//score -= PcOnSq(sq_bk1, kp_wpawn + Inv(sq));
 				//+score += kkp[sq_bk0][sq_wk0][kkp_pawn + sq];
 				//score -= kkp[sq_bk1][sq_wk1][kp_wpawn + Inv(sq)];
-				assert(sfu_list0[sfu_nlist] >= kp_hand_end);
-				assert(sfu_list1[sfu_nlist] >= kp_hand_end);
+				//assert(sfu_list0[sfu_nlist] >= kp_hand_end);
+				//assert(sfu_list1[sfu_nlist] >= kp_hand_end);
 				//sfu_nlist += 1;
 				break;
 			case GFU:
@@ -648,8 +632,8 @@ int Position::make_list(int * pscore, int list0[NLIST], int list1[NLIST] ) const
 				//score -= PcOnSq(sq_bk1, kp_bpawn + Inv(sq));
 				//score += kkp[sq_bk0][sq_wk0][kp_wpawn + sq];
 				//+score -= kkp[sq_bk1][sq_wk1][kkp_pawn + Inv(sq)];
-				assert(gfu_list0[gfu_nlist] >= kp_hand_end);
-				assert(gfu_list1[gfu_nlist] >= kp_hand_end);
+				//assert(gfu_list0[gfu_nlist] >= kp_hand_end);
+				//assert(gfu_list1[gfu_nlist] >= kp_hand_end);
 				//gfu_nlist += 1;
 				break;
 			case SKY:
@@ -948,7 +932,7 @@ int Position::make_list(int * pscore, int list0[NLIST], int list1[NLIST] ) const
 	*/
 	assert( nlist <= NLIST );
 
-	*pscore += score;
+	*pscore += score; // 0
 	return nlist;
 }
 #endif
